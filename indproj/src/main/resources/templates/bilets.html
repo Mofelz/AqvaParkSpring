@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Мой профиль</title>
+</head>
+<body th:align="center">
+<h1>Мой профиль</h1>
+<div class="bilet">
+  <h2>Билет</h2>
+  <div th:each="el : ${post}">
+    <h3 th:text="${'Номер билета: '+el.id}"></h3>
+    <h3 th:text="${'Дата посещения: '+el.datapos}"></h3>
+    <h3 th:text="${'Номер услуги: '+el.uslaga}"></h3>
+    <!--  <h3 th:text="${'Посетители: '+el.visitors}"></h3>-->
+    <h3 th:text="${'Итоговая цена: '+el.price+' руб.'}"></h3>
+    <br>
+    <br>
+    <a th:href=" '/blog/' + ${el.id} + '/edit'">Редактировать</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="/" style="font-size: 20px" >Главное Меню</a>
+  </div>
+</div>
+<!--  <form th:action=" '/blog/' + ${el.id} + '/remove'" method="post">-->
+<!--    <button type="submit" class="btn btn-del">Удалить</button>-->
+<!--  </form>-->
+</body>
+</html>
+<style>
+  html *{
+    font-family: Arial !important;
+  }
+  .bilet{
+    padding-top: 10px;
+    margin-left: 580px;
+    width: 300px;
+    height: 400px;
+    background-color: cornflowerblue;
+    border-radius: 30px;
+  }
+  h1{
+    font-size: 100px;
+  }
+  h3{
+    color: darkblue;
+  }
+  body{
+    color: whitesmoke;
+    background-color: royalblue;
+  }
+  button, a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #000000;
+    background-color: dodgerblue;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    text-transform: uppercase;
+    line-height: 1;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  button:hover,a:hover{
+    color: dodgerblue;
+    background-color: whitesmoke;
+  }
+</style>
